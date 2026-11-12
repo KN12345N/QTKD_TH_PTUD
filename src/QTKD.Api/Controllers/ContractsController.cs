@@ -119,6 +119,15 @@ public class ContractsController : ControllerBase
             });
         }
 
+        // Không cho phép thay đổi trạng thái qua API cập nhật
+        if (updatedContract.Status != contract.Status)
+        {
+            return BadRequest(new
+            {
+                message = "Status cannot be changed through this endpoint."
+            });
+        }
+        
         // CTR-01: Chỉ sửa Draft hoặc Revision Requested
         if (contract.Status != "Draft" &&
             contract.Status != "Revision Requested")
@@ -197,7 +206,7 @@ public class ContractsController : ControllerBase
                 message = "Contract not found."
             });
         }
-
+        
         // CTR-03: Không cho phép gửi duyệt nếu không ở trạng thái Draft
         if (contract.Status != "Draft")
         {
