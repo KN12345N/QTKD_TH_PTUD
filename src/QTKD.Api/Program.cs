@@ -27,3 +27,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { } // Thêm lớp Program để hỗ trợ kiểm thử
