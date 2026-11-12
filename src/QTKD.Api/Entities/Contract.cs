@@ -8,7 +8,11 @@ public class Contract
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public string Status { get; set; } = "Draft";
+    // Nội dung hợp đồng
+    public string Description { get; set; } = string.Empty;
+    // Tên tài liệu đính kèm
+    public string AttachmentName { get; set; } = string.Empty;
 
-    // Khóa ngoại liên hệ tới Customer
+    // Khóa ngoại liên kết Customer
     public Customer? Customer { get; set; }
 }
